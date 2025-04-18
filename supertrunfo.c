@@ -2,6 +2,8 @@
 
 int main(){
 
+    //Definindo variaveis gerais
+    int opcoes;
 
     // Definindo as variáveis para a primeira carta
     char a[100]; //São Paulo
@@ -78,7 +80,7 @@ int main(){
     printf("Estado: %s\n", a);
     printf("Codigo: %s\n", s01);
     printf("Nome da Cidade: %s\n", cidade1);
-    printf("Populacao: %lu\n", populacao1);
+    printf("Populacao: %d\n", populacao1);
     printf("Area: %.2f\n", area1);
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos1);
     printf("Densidade: %.2f\n", densidade1);
@@ -90,7 +92,7 @@ int main(){
     printf("Estado: %s\n", b);
     printf("Codigo: %s\n", s02);
     printf("Nome da Cidade: %s\n", cidade2);
-    printf("Populacao: %lu\n", populacao2);
+    printf("Populacao: %d\n", populacao2);
     printf("Area: %.2f\n", area2);
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos2);
     printf("Densidade: %.2f\n", densidade2);
@@ -99,25 +101,88 @@ int main(){
     printf("                                                \n");
 
 
-    // Compara as cartas
+    printf("Selecione qual atributo deseja comparar:\n");
+    printf("1. Populacao\n");
+    printf("2. Area\n");
+    printf("3. Numero de Pontos Turisticos\n");
+    printf("4. Densidade\n");
+    printf("5. PIB\n");
+    printf("6. PIB per capita\n");
+    printf("7. SP\n");
+    printf("Digite a opcao desejada: ");
+    scanf("%d", &opcoes);
+    printf("                                                \n");
+
+    switch (opcoes)
+    {
+    case 1:
     if (populacao1 > populacao2){
         printf("A carta 1 ganhou!\n");
         pontos1++;
-    } else if (populacao1 < populacao2){
+    } else{
         printf("A carta 2 ganhou!\n");
         pontos2++;
-    } else {
-        printf("As cartas sao iguais!\n");
     }
+        break;
 
-    if (area1 > area2){
+    case 2:
+        if (area1 > area2){
         printf("A carta 1 ganhou!\n");
         pontos1++;
-    } else if (area1 < area2){
+    } else{
+        printf("A carta 2 ganhou!\n");
+     pontos2++;
+    }
+        break;
+    case 3:
+        if (pontosTuristicos1 > pontosTuristicos2){
+        printf("A carta 1 ganhou!\n");
+        pontos1++;
+    } else{
         printf("A carta 2 ganhou!\n");
         pontos2++;
-    } else {
-        printf("As cartas sao iguais!\n");
+    }
+        break;
+    case 4:
+        if (densidade1 > densidade2){
+        printf("A carta 2 ganhou!\n");
+        pontos1++;
+    } else{
+        printf("A carta 1 ganhou!\n");
+        pontos2++;
+    }
+        break;
+    case 5:
+        if (pib1 > pib2){
+        printf("A carta 1 ganhou!\n");
+        pontos1++;
+    } else{
+        printf("A carta 2 ganhou!\n");
+        pontos2++;
+    }
+        break;
+    case 6:
+        if (pibPerCapita1 > pibPerCapita2){
+        printf("A carta 1 ganhou!\n");
+        pontos1++;
+    } else{
+        printf("A carta 2 ganhou!\n");
+        pontos2++;
+    }
+        break;
+    case 7:
+        if (sp1 > sp2){
+        printf("A carta 1 ganhou!\n");
+        pontos1++;
+    } else{
+        printf("A carta 2 ganhou!\n");
+        pontos2++;
+    }
+        break;
+    default:
+        printf("Opcao invalida!\n");
+        break;
+    }
   
     printf("                                                \n");
 
@@ -134,5 +199,4 @@ int main(){
         printf("EMPATE!!    \n");
     }
     return 0;
-}
 }
