@@ -52,10 +52,12 @@ int main(){
     // printf("Digite o PIB da cidade: ");
     // scanf("%f", &pib1);
     // printf("                                                \n");
+
     // //Calcula densidade e PIB per capita carta 1
     densidade1 = (float) populacao1 / area1;
     pibPerCapita1 = (float) pib1 / populacao1;
 
+    //Calcula SP e soma total carta 1
     sp1 = (populacao1 + area1 + pontosTuristicos1 + pib1 + densidade1) / 5;
     sTotal1 = (populacao1 + area1 + pontosTuristicos1 + pib1 + densidade1);
 
@@ -79,6 +81,7 @@ int main(){
     densidade2 = (float) populacao2 / area2;
     pibPerCapita2 = (float) pib2 / populacao2;
 
+    //Calcula SP e soma total carta 2
     sp2 = (populacao2 + area2 + pontosTuristicos2 + pib2 + densidade2) / 5;
     sTotal2 = (populacao2 + area2 + pontosTuristicos2 + pib2 + densidade2);
     
@@ -109,7 +112,7 @@ int main(){
     printf("PIB per capita: %.2f\n", pibPerCapita2);
     printf("                                                \n");
 
-    // Exibe as opções de comparação
+    // Menu do usuario para selecionar o primeiro atributo
     printf("Selecione o primeiro atributo para comparar:\n");
     printf("1. Populacao\n");
     printf("2. Area\n");
@@ -122,12 +125,15 @@ int main(){
 
     printf("Digite a opcao desejada: ");
     scanf("%d", &opcoes1);
+
+    //Tratamento de erro para o primeiro atributo
     if (opcoes1 < 1 || opcoes1 > 8){
         printf("Opcao invalida!\n");
         return 1;
     }
     printf("                                                \n");
 
+    // Menu do usuario para selecionar o segundo atributo
     printf("Seleciona o segundo atributo para comparar:\n");
     if (opcoes1 != 1) printf("1. Populacao\n");
     if (opcoes1 != 1) printf("2. Area\n");
@@ -140,6 +146,8 @@ int main(){
 
     printf("Digite a opcao desejada: ");
     scanf("%d", &opcoes2);
+
+    //Tratamento de erro para o segundo atributo
     if (opcoes2 < 1 || opcoes2 > 8){
         printf("Opcao invalida!\n");
         return 1;
@@ -151,7 +159,7 @@ int main(){
         return 1;
     }
 
-
+    // Faz a comparação entre os atributos escolhidos
     switch (opcoes1){
         case 1: atEscolhido1 = 1; 
         if (populacao1 > populacao2){
@@ -230,6 +238,7 @@ int main(){
   
     printf("                                                \n");
 
+    // Faz a comparação entre os atributos escolhidos
     switch (opcoes2){
         case 1: atEscolhido2 = 1; 
         if (populacao1 > populacao2){
@@ -309,6 +318,8 @@ int main(){
     // Exibe o resultado final
     printf("Resultado Final:\n");
 
+
+    // Verifica quem ganhou, quais atributos foram escolhidos e exibe os pontos
     if (pontos1 >> pontos2){
         printf("A carta 1 ganhou!\n");
         printf("Carta 1: %d pontos\n", pontos1);
